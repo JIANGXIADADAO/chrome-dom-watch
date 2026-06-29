@@ -30,4 +30,4 @@ Deliverable is a clean repo you can load as an unpacked extension, plus the Apps
 
 ---
 
-No agency overhead — it's just me writing the code. Happy to jump on a quick call or async chat if you want to walk through the approach before committing.
+No agency overhead — it's just me delivering the work. I'm on Upwork messages throughout the project if you want to check in or adjust scope.
