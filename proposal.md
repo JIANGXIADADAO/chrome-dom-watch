@@ -4,11 +4,12 @@
 
 **1. Have you built a Chrome extension using Manifest V3? If yes, share an example.**
 
-Yes. Built one this week that uses the exact same stack you're asking for — Manifest V3, MutationObserver, Apps Script webhook, chrome.storage. It's open source:
+Yes. Built one this week that uses the exact same stack you're asking for — Manifest V3, MutationObserver, Apps Script webhook, chrome.storage.
 
-https://github.com/JIANGXIADADAO/chrome-dom-watch
+Repo: https://github.com/JIANGXIADADAO/chrome-dom-watch
+Demo (30s): https://github.com/JIANGXIADADAO/chrome-dom-watch/blob/master/demo.webm
 
-It watches any CSS selector on a page for text changes, fires browser notifications, and dispatches logs to Google Sheets via an Apps Script `doPost()` endpoint. Your project is essentially the same pattern: observe a tab → detect an event → log it → notify.
+It watches any CSS selector on a page for text changes, fires browser notifications, and dispatches logs to Google Sheets via an Apps Script `doPost()` endpoint. Your project is essentially the same pattern: observe a tab → detect an event → log it → notify. Swap the selector and the trigger condition, and the skeleton is identical.
 
 **2. Would you use the Google Sheets API directly or an Apps Script webhook, and why?**
 
