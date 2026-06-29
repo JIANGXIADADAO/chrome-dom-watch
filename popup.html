@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 340px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #141413; background: #FAF9F5; padding: 16px; }
+    h2 { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .status-dot.on { background: #2e7d32; }
+    .status-dot.off { background: #B0AEA5; }
+    label { display: block; font-size: 11px; font-weight: 500; color: #87867F; margin-bottom: 4px; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
+    input, textarea { width: 100%; padding: 8px 10px; border: 1px solid #B0AEA5; border-radius: 6px; font-size: 13px; font-family: 'SF Mono', 'Fira Code', monospace; background: #fff; margin-bottom: 2px; }
+    input:focus, textarea:focus { outline: none; border-color: #141413; }
+    .hint { font-size: 10px; color: #87867F; margin-bottom: 8px; }
+    .btn-row { display: flex; gap: 8px; margin-top: 14px; }
+    button { flex: 1; padding: 9px 0; border-radius: 6px; border: none; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+    button:hover { opacity: 0.85; }
+    .btn-start { background: #141413; color: #FAF9F5; }
+    .btn-stop { background: #f0eee6; color: #141413; border: 1px solid #B0AEA5; }
+    .btn-test { background: transparent; color: #d97757; border: 1px solid #d97757; }
+    .log-preview { margin-top: 12px; border-top: 1px solid #B0AEA5; padding-top: 10px; }
+    .log-preview h3 { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+    .log-entry { font-size: 10px; color: #87867F; margin-bottom: 3px; font-family: monospace; max-height: 100px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <h2>
+    <span class="status-dot off" id="statusDot"></span>
+    DOM Watch
+  </h2>
+
+  <label for="selector">CSS Selector</label>
+  <input type="text" id="selector" placeholder="e.g. #price, .stock-value, h1.title" spellcheck="false">
+
+  <label for="label">Environment Label</label>
+  <input type="text" id="label" placeholder="e.g. production, staging" spellcheck="false">
+
+  <label for="webhookUrl">Google Apps Script Webhook URL</label>
+  <textarea id="webhookUrl" rows="2" placeholder="https://script.google.com/macros/s/.../exec"></textarea>
+  <div class="hint">Create via Apps Script: <code>doPost(e) { /* write to sheet */ }</code></div>
+
+  <div class="btn-row">
+    <button class="btn-start" id="btnStart">Start Watch</button>
+    <button class="btn-stop" id="btnStop">Stop</button>
+    <button class="btn-test" id="btnTest">Test</button>
+  </div>
+
+  <div class="log-preview" id="logPreview" style="display:none;">
+    <h3>Recent Changes</h3>
+    <div class="log-entry" id="logEntries"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

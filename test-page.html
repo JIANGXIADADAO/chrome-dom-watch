@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>DOM Watch — Test Page</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 600px; margin: 48px auto; padding: 24px; background: #FAF9F5; color: #141413; }
+  .card { border: 1px solid #B0AEA5; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+  .card h2 { margin-top: 0; font-size: 20px; }
+  #price { font-size: 48px; font-weight: 700; margin: 12px 0; }
+  #status { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 14px; background: #f0eee6; }
+  #status.online { background: #e8f5e9; color: #2e7d32; }
+  button { padding: 8px 16px; margin: 4px; border: 1px solid #B0AEA5; border-radius: 6px; background: #fff; cursor: pointer; font-size: 14px; }
+  button:hover { background: #f0eee6; }
+</style></head>
+<body>
+<div class="card">
+  <h2>Stock Price Monitor</h2>
+  <div id="price">$142.37</div>
+  <div id="status">stable</div>
+  <p style="color:#87867F;font-size:13px;">The extension watches <code>#price</code> — every change triggers a notification + Sheets log.</p>
+  <button onclick="simulatePriceChange()">Simulate Price Change</button>
+  <button onclick="toggleStatus()">Toggle Status</button>
+</div>
+<script>
+  function simulatePriceChange() {
+    const p = document.getElementById('price');
+    const change = (Math.random() * 10 - 3).toFixed(2);
+    p.textContent = '$' + (142.37 + parseFloat(change)).toFixed(2);
+  }
+  function toggleStatus() {
+    const s = document.getElementById('status');
+    if (s.classList.contains('online')) {
+      s.classList.remove('online');
+      s.textContent = 'offline';
+    } else {
+      s.classList.add('online');
+      s.textContent = 'online';
+    }
+  }
+</script>
+</body>
+</html>
