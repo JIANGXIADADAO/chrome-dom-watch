@@ -4,6 +4,10 @@ Watch any page element for changes. Logs to Google Sheets, fires browser notific
 
 **Built with:** Manifest V3 · MutationObserver · Apps Script Webhook · chrome.storage
 
+## Demo
+
+![Demo](demo.gif)
+
 ## How it works
 
 1. Enter a CSS selector (e.g. `#price`, `.stock-value`)
